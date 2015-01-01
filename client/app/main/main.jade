@@ -9,8 +9,15 @@ header#banner.hero-unit
 .container
   form
     .form-group
-      label Where do you want to go?
-      input.form-control(type='text', placeholder='Beach, New York, Museum, Europe, Canoeing')
+      p.input-group
+        label Where do you want to go?
+        input.form-control(type='text', placeholder='Beach, New York, Museum, Europe, Canoeing')
+      p.input-group
+        input.form-control(type='text', datepicker-popup='{{format}}', ng-model='dt', is-open='opened', min-date='minDate', max-date='"2015-06-22"', datepicker-options='dateOptions', date-disabled='disabled(date, mode)', ng-required='true', close-text='Close')
+        span.input-group-btn
+          button.btn.btn-default(type='button', ng-click='open($event)')
+            i.glyphicon.glyphicon-calendar
+
     button.btn.btn-default(type='submit') Search
 
 

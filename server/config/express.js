@@ -15,6 +15,7 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
 var passport = require('passport');
+var seo = require('mean-seo');
 
 module.exports = function(app) {
   var env = app.get('env');
@@ -22,7 +23,9 @@ module.exports = function(app) {
   app.set('views', config.root + '/server/views');
   app.set('view engine', 'jade');
   app.use(compression());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({
+    extended: false
+  }));
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
@@ -42,4 +45,10 @@ module.exports = function(app) {
     app.use(morgan('dev'));
     app.use(errorHandler()); // Error handler - has to be last
   }
+
+  app.use(seo({
+    cacheClient: 'disk', // Can be 'disk' or 'redis'
+    cacheDuration: 2 * 60 * 60 * 24 * 1000, // In milliseconds for disk cache
+  }));
+
 };

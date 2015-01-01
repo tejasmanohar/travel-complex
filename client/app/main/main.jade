@@ -2,22 +2,21 @@ div(ng-include='"components/navbar/navbar.html"')
 
 header#banner.hero-unit
   .container
-    h1 'Allo, 'Allo!
-    p.lead Kick-start your next web app with Angular Fullstack
+    h1 Travel App
+    p.lead Find and book the cheapest getaway. You'll be amazed!
     img(src='assets/images/yeoman.png', alt='I\'m Yeoman')
 
 .container
   form
     .form-group
-      input.form-control(type='text', placeholder='Search')
-    button.btn.btn-default(type='submit') Submit
+      label Where do you want to go?
+      input.form-control(type='text', placeholder='Beach, New York, Museum, Europe, Canoeing')
+    button.btn.btn-default(type='submit') Search
 
 
 footer.footer
   .container
     p
-      | Angular Fullstack v2.0.13
+      | Travel App
       = ' | '
-      a(href='https://twitter.com/tyhenkel') @tyhenkel
-      = ' | '
-      a(href='https://github.com/DaftMonk/generator-angular-fullstack/issues?state=open') Issues
+      a(href='https://twitter.com/travelapp') @travelapp
